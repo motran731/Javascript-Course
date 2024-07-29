@@ -11,6 +11,10 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
 
 //destructuring, left side of equal sign
@@ -22,6 +26,37 @@ const c = arr[2];
 const [x, y, z] = arr;
 console.log(x, y, z);
 console.log(arr);
+
+// const [first, , second] = restaurant.categories;
+// console.log(first, second);
+
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
+
+//1. switching variables
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(main, secondary);
+
+//2. destructuring
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary);
+
+//3. Receive 2 return values from a function, used destructure with order
+// console.log(restaurant.order(2, 0));
+
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+//4. Nested destructuring array
+const nested = [2, 4, [5, 6]];
+
+// const [i, , j] = nested; // skip the 4
+// console.log(i, j);
+
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
 
 // openingHours: {
 //   thu: {
