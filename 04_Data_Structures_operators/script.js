@@ -43,6 +43,10 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is you delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
 restaurant.orderDelivery({
@@ -59,46 +63,53 @@ restaurant.orderDelivery({
   starterIndex: 1,
 });
 
-// NOTES DESTRUCTURING OBJECTS
-//1. order of elements does not matter
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+//NOTES SPREAD OPERATOR
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
+const goodArray = [1, 2, ...arr];
+console.log(goodArray);
+console.log(...goodArray);
 
-//2. default values in objects
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+console.log(...newMenu);
 
-//3. Mutating variables
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
+//copy array
+const mainMenuCopy = [...restaurant.mainMenu];
 
-({ a, b } = obj);
-console.log(a, b);
+//join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
 
-//Nested objects
-// const { fri } = openingHours;
-// console.log(fri);
+//iterable: arrays, strings, maps, sets. NOT objects
+const str = 'Tran';
+const letters = [...str, '', 'S.'];
+console.log(letters);
+console.log(...str);
 
-// const {
-//   fri: { open, close },
-// } = openingHours;
-// console.log(open, close);
+const ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt('Ingredient 2'),
+  prompt('Ingredient 3'),
+];
+console.log(ingredients);
 
-//reassign different variables with :
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+//old way restaurant.orderPasta(ingredients[0],ingredients[1], ingredients[2] )
+restaurant.orderPasta(...ingredients);
 
-//DESTRUCTURING ARRAY
+//Real-world example on objects
+
+const newRest = { ...restaurant, found: 1999, founder: 'gssfs' };
+console.log(newRest);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'tran tran';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+//NOTES DESTRUCTURING ARRAY
 //destructuring, left side of equal sign
 // const arr = [2, 3, 4];
 // const a = arr[0];
@@ -143,3 +154,42 @@ console.log(o, c);
 // //5. set default values when length of array is unknown
 // const [p = 1, q = 1, r = 1] = [8, 9];
 // console.log(p, q, r);
+
+// // NOTES DESTRUCTURING OBJECTS
+// //1. order of elements does not matter
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
+
+// //2. default values in objects
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// //3. Mutating variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// //Nested objects
+// // const { fri } = openingHours;
+// // console.log(fri);
+
+// // const {
+// //   fri: { open, close },
+// // } = openingHours;
+// // console.log(open, close);
+
+// //reassign different variables with :
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
