@@ -12,11 +12,38 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 };
 
+//DESTRUCTURING OBJECTS
+//order of elements
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//DESTRUCTURING ARRAY
 //destructuring, left side of equal sign
 const arr = [2, 3, 4];
 const a = arr[0];
@@ -61,21 +88,6 @@ console.log(i, j, k);
 //5. set default values when length of array is unknown
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
-
-// openingHours: {
-//   thu: {
-//     open: 12,
-//     close: 22,
-//   },
-//   fri: {
-//     open: 11,
-//     close: 23,
-//   },
-//   sat: {
-//     open: 0, // Open 24 hours
-//     close: 24,
-//   },
-// },
 
 //Destructuring Array assignment
 const books = [
