@@ -68,6 +68,15 @@ restaurant.orderDelivery({
   starterIndex: 1,
 });
 
+//NOTES Nullish coalescing operator ??
+restaurant.numGuests = 0; //if the num=0, then it becomes false
+const guest1 = restaurant.numGuests || 10;
+console.log(guest1);
+
+//nullish: null and undefined (not 0 or '')
+const guest2 = restaurant.numGuests ?? 10;
+console.log(guest2);
+
 //NOTES SPREAD OPERATOR
 // const arr = [7, 8, 9];
 // const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -114,34 +123,6 @@ restaurant.orderDelivery({
 // console.log(restaurantCopy.name);
 // console.log(restaurant.name);
 
-//NOTES Short circuiting( && and ||)
-//use ANY data type, return ANY data type, short-circuiting
-console.log('-----OR-----');
-console.log(3 || 'tran');
-console.log('' || 'tran');
-console.log(true || 0);
-console.log(undefined || null);
-console.log(undefined || 0 || '' || 'hello' || 23 || null);
-
-restaurant.numGuests = 23; //if the num=0, then it becomes false
-const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guest1);
-
-const guest2 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guest2);
-
-console.log('-----AND-----');
-console.log(0 && 'tran');
-console.log(7 && 'tran');
-console.log('hello' && 23 && null && 'tran');
-
-//Practice example
-
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-
-  restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
-}
 //NOTES DESTRUCTURING ARRAY
 //destructuring, left side of equal sign
 // const arr = [2, 3, 4];
@@ -264,3 +245,32 @@ if (restaurant.orderPizza) {
 
 // restaurant.orderPizza('mushy', 'onion', 'olives', 'spinach');
 // restaurant.orderPizza('mushrooms');
+
+//NOTES Short circuiting( && and ||)
+//use ANY data type, return ANY data type, short-circuiting
+// console.log('-----OR-----');
+// console.log(3 || 'tran');
+// console.log('' || 'tran');
+// console.log(true || 0);
+// console.log(undefined || null);
+// console.log(undefined || 0 || '' || 'hello' || 23 || null);
+
+// restaurant.numGuests = 23; //if the num=0, then it becomes false
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest1);
+
+// const guest2 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest2);
+
+// console.log('-----AND-----');
+// console.log(0 && 'tran');
+// console.log(7 && 'tran');
+// console.log('hello' && 23 && null && 'tran');
+
+// //Practice example
+
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+
+//   restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// }
