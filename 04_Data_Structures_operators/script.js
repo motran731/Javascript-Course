@@ -68,14 +68,36 @@ restaurant.orderDelivery({
   starterIndex: 1,
 });
 
-//NOTES Nullish coalescing operator ??
-restaurant.numGuests = 0; //if the num=0, then it becomes false
-const guest1 = restaurant.numGuests || 10;
-console.log(guest1);
+//NOTES
+const rest1 = {
+  name: 'capri',
+  numGuests: 20,
+};
 
-//nullish: null and undefined (not 0 or '')
-const guest2 = restaurant.numGuests ?? 10;
-console.log(guest2);
+const rest2 = {
+  name: 'la la pizza',
+  owner: 'Momo',
+};
+
+//OR assignment, num 0 is false
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+//nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && '<ANNOYMOUS>';
+// rest2.owner = rest2.owner && '<ANNOYMOUS>';
+
+rest1.owner &&= '<ANNOYMOUS>';
+rest2.owner &&= '<ANNOYMOUS>';
+console.log(rest1);
+console.log(rest2);
 
 //NOTES SPREAD OPERATOR
 // const arr = [7, 8, 9];
@@ -274,3 +296,12 @@ console.log(guest2);
 
 //   restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 // }
+
+//NOTES Nullish coalescing operator ??
+// restaurant.numGuests = 0; //if the num=0, then it becomes false
+// const guest1 = restaurant.numGuests || 10;
+// console.log(guest1);
+
+// //nullish: null and undefined (not 0 or '')
+// const guest2 = restaurant.numGuests ?? 10;
+// console.log(guest2);
