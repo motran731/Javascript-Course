@@ -114,6 +114,34 @@ restaurant.orderDelivery({
 // console.log(restaurantCopy.name);
 // console.log(restaurant.name);
 
+//NOTES Short circuiting( && and ||)
+//use ANY data type, return ANY data type, short-circuiting
+console.log('-----OR-----');
+console.log(3 || 'tran');
+console.log('' || 'tran');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'hello' || 23 || null);
+
+restaurant.numGuests = 23; //if the num=0, then it becomes false
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest2);
+
+console.log('-----AND-----');
+console.log(0 && 'tran');
+console.log(7 && 'tran');
+console.log('hello' && 23 && null && 'tran');
+
+//Practice example
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+
+  restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+}
 //NOTES DESTRUCTURING ARRAY
 //destructuring, left side of equal sign
 // const arr = [2, 3, 4];
