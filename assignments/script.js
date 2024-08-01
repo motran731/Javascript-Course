@@ -248,6 +248,7 @@ function spellWord(str) {
 }
 
 spellWord("javascript");
+
 /*Destructuring Array assignment
 // 1.1 Destructure the books array into two variables called firstBook and secondBook.
 const [firstBook, secondBook] = books;

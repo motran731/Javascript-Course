@@ -47,6 +47,11 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is you delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizza: function (mainIngred, ...otherIngred) {
+    console.log(mainIngred);
+    console.log(otherIngred);
+  },
 };
 
 restaurant.orderDelivery({
@@ -64,50 +69,50 @@ restaurant.orderDelivery({
 });
 
 //NOTES SPREAD OPERATOR
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
-const goodArray = [1, 2, ...arr];
-console.log(goodArray);
-console.log(...goodArray);
+// const goodArray = [1, 2, ...arr];
+// console.log(goodArray);
+// console.log(...goodArray);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
-console.log(...newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+// console.log(...newMenu);
 
-//copy array
-const mainMenuCopy = [...restaurant.mainMenu];
+// //copy array
+// const mainMenuCopy = [...restaurant.mainMenu];
 
-//join 2 arrays
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
+// //join 2 arrays
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
 
-//iterable: arrays, strings, maps, sets. NOT objects
-const str = 'Tran';
-const letters = [...str, '', 'S.'];
-console.log(letters);
-console.log(...str);
+// //iterable: arrays, strings, maps, sets. NOT objects
+// const str = 'Tran';
+// const letters = [...str, '', 'S.'];
+// console.log(letters);
+// console.log(...str);
 
-const ingredients = [
-  prompt("Let's make pasta! Ingredient 1?"),
-  prompt('Ingredient 2'),
-  prompt('Ingredient 3'),
-];
-console.log(ingredients);
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredient 2'),
+//   prompt('Ingredient 3'),
+// ];
+// console.log(ingredients);
 
 //old way restaurant.orderPasta(ingredients[0],ingredients[1], ingredients[2] )
-restaurant.orderPasta(...ingredients);
+// restaurant.orderPasta(...ingredients);
 
 //Real-world example on objects
 
-const newRest = { ...restaurant, found: 1999, founder: 'gssfs' };
-console.log(newRest);
+// const newRest = { ...restaurant, found: 1999, founder: 'gssfs' };
+// console.log(newRest);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'tran tran';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'tran tran';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 //NOTES DESTRUCTURING ARRAY
 //destructuring, left side of equal sign
@@ -193,3 +198,41 @@ console.log(restaurant.name);
 //   fri: { open: o, close: c },
 // } = openingHours;
 // console.log(o, c);
+
+//NOTES rest pattern and parameter
+//1) REST destructuring
+//spread, because the ... is on RIGHT side of =
+// const arr1 = [1, 2, ...[3, 4]];
+
+// //REST, because on Left side of =
+// const [g, h, ...others] = [1, 2, 3, 4, 5];
+// console.log((g, h, others));
+
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
+
+// //rest object
+
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
+// // 2) REST functions
+// const add = function (...numbers) {
+//   // console.log(numbers); puts all the elements in one array
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 9, 2, 4, 5, 6, 7, 1, 2);
+
+// const x = [23, 8, 7];
+// add(...x);
+// console.log(x);
+
+// restaurant.orderPizza('mushy', 'onion', 'olives', 'spinach');
+// restaurant.orderPizza('mushrooms');
