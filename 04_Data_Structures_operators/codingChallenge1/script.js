@@ -74,8 +74,13 @@ const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 console.log(players1Final);
 
 //5.
-const { team1, x = draw, team2 } = game.odds;
-console.log(team1, x, team2);
+// const { team1, x = draw, team2 } = game.odds;
+// console.log(team1, x, team2);
+
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
 
 //6.
 const printGoals = function (...players) {
